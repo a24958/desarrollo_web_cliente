@@ -1,0 +1,45 @@
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\bin\Debug\net7.0\bankapp.exe
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\bin\Debug\net7.0\bankapp.deps.json
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\bin\Debug\net7.0\bankapp.runtimeconfig.json
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\bin\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\bin\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.csproj.AssemblyReference.cache
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfoInputs.cache
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfo.cs
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.csproj.CoreCompileInputs.cache
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\refint\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\bankapp.genruntimeconfig.cache
+D:\Antonio Martínez Posada\DISEÑO WEB CLIENTE\bankapp\obj\Debug\net7.0\ref\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\bin\Debug\net7.0\bankapp.exe
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\bin\Debug\net7.0\bankapp.deps.json
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\bin\Debug\net7.0\bankapp.runtimeconfig.json
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\bin\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\bin\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.csproj.AssemblyReference.cache
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfoInputs.cache
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfo.cs
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.csproj.CoreCompileInputs.cache
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\refint\bankapp.dll
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\bankapp.genruntimeconfig.cache
+D:\Antonio Martínez Posada\DISEÑO WEB SERVIDOR\bankapp\obj\Debug\net7.0\ref\bankapp.dll
+D:\Antonio Martínez Posada\BACKUP\bankapp\bin\Debug\net7.0\bankapp.exe
+D:\Antonio Martínez Posada\BACKUP\bankapp\bin\Debug\net7.0\bankapp.deps.json
+D:\Antonio Martínez Posada\BACKUP\bankapp\bin\Debug\net7.0\bankapp.runtimeconfig.json
+D:\Antonio Martínez Posada\BACKUP\bankapp\bin\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\BACKUP\bankapp\bin\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.csproj.AssemblyReference.cache
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfoInputs.cache
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.AssemblyInfo.cs
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.csproj.CoreCompileInputs.cache
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.dll
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\refint\bankapp.dll
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.pdb
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\bankapp.genruntimeconfig.cache
+D:\Antonio Martínez Posada\BACKUP\bankapp\obj\Debug\net7.0\ref\bankapp.dll
