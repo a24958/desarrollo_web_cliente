@@ -15,7 +15,7 @@ public class BankAccount {
 
     private static int accountNumber_seed = 1;
 
-    private List<Transaction> transactions = new List<Transaction>();
+    protected List<Transaction> transactions = new List<Transaction>();
 
     public BankAccount(string owner){
         this.Owner = owner;
@@ -34,16 +34,12 @@ public class BankAccount {
         if (amount <= 0){
             throw new ArgumentOutOfRangeException(nameof(amount), "No puede añadirse un depósito negativo");
         }
-
-        if (date > DateTime.Now){
-            throw new InvalidDataException("La fecha no puede ser posterior a la actual");
-        }
        
         var deposit = new Transaction(amount, date, note);
         transactions.Add(deposit);
     }
 
-    public void Makewithdrawal(decimal amount, DateTime date, string note) {
+    public virtual void Makewithdrawal(decimal amount, DateTime date, string note) {
         if (amount <= 0){
             throw new ArgumentOutOfRangeException(nameof(amount), "No puede realizar una retirada negativa");
         }
@@ -59,10 +55,10 @@ public class BankAccount {
     public string GetAccountHistory(){
         var history = new System.Text.StringBuilder();
         decimal balance = 0;
-        history.AppendLine("Date\t\tAmount\tBalance\tNote");
+        history.AppendLine("Date\t\tAmount\t\tBalance\t\tNote");
         foreach (var item in transactions){
             balance += item.Amount;
-            history.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Note}");
+            history.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t\t{balance}\t\t{item.Note}");
         }
 
         return history.ToString();
@@ -72,4 +68,5 @@ public class BankAccount {
         return this.Owner ?? "Null Owner";
     }
 
+    public virtual void PerformMonthlyOperation(){}
 }
