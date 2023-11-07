@@ -12,4 +12,5 @@ public class Transaction{
         Date = date;
         Note = note;
     }
+
 }

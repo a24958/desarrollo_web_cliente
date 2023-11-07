@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace Models;
 
 public class BankAccount {
@@ -35,8 +37,9 @@ public class BankAccount {
             throw new ArgumentOutOfRangeException(nameof(amount), "No puede añadirse un depósito negativo");
         }
        
-        var deposit = new Transaction(amount, date, note);
+        var deposit = new Transaction(amount, date, note ?? "");
         transactions.Add(deposit);
+        SaveTransationInJSON(deposit);
     }
 
     public virtual void Makewithdrawal(decimal amount, DateTime date, string note) {
@@ -48,8 +51,9 @@ public class BankAccount {
             throw new InvalidOperationException("No puedes retirar dinero, porque no dispone de él");
         }
 
-        var withdrawal = new Transaction(-amount, date, note);
+        var withdrawal = new Transaction(-amount, date, note ?? "");
         transactions.Add(withdrawal);
+        SaveTransationInJSON(withdrawal);
     }
 
     public string GetAccountHistory(){
@@ -60,12 +64,17 @@ public class BankAccount {
             balance += item.Amount;
             history.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t\t{balance}\t\t{item.Note}");
         }
-
         return history.ToString();
     }
 
     public override string ToString(){
         return this.Owner ?? "Null Owner";
+    }
+
+    public static void SaveTransationInJSON(Transaction transaction){
+        string fileName = "Transactions.json"; 
+        string jsonString = JsonSerializer.Serialize(transaction);
+        File.AppendAllText(fileName, jsonString);
     }
 
     public virtual void PerformMonthlyOperation(){}
