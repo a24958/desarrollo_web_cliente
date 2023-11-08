@@ -1,0 +1,5 @@
+D:\Antonio Martínez Posada\BACKUP\bankapp\app\bankapp.exe
+D:\Antonio Martínez Posada\BACKUP\bankapp\app\bankapp.dll
+D:\Antonio Martínez Posada\BACKUP\bankapp\app\bankapp.deps.json
+D:\Antonio Martínez Posada\BACKUP\bankapp\app\bankapp.runtimeconfig.json
+D:\Antonio Martínez Posada\BACKUP\bankapp\app\bankapp.pdb
