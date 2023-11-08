@@ -7,10 +7,13 @@ public class Transaction{
 
     public string Note {get;} = "";
 
-    public Transaction(decimal amount, DateTime date, string note){
+    public string AccountNumber {get;}
+
+    public Transaction(decimal amount, DateTime date, string note, string accountNumber){
         Amount = amount;
         Date = date;
         Note = note;
+        AccountNumber = accountNumber;
     }
 
 }

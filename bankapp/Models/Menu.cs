@@ -63,7 +63,7 @@ public class Menu
         string? noteInput = Console.ReadLine();
 
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
-        accountSelected.MakeDeposit(cuantityInput, DateTime.Now, noteInput!);
+        accountSelected.MakeDeposit(cuantityInput, DateTime.Now, noteInput ?? " ");
 
         Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
         Console.WriteLine(accountSelected.GetAccountHistory());
@@ -81,7 +81,7 @@ public class Menu
         string? noteInput = Console.ReadLine();
 
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
-        accountSelected.Makewithdrawal(cuantityInput, DateTime.Now, noteInput!);
+        accountSelected.Makewithdrawal(cuantityInput, DateTime.Now, noteInput ?? " ");
 
         Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
         Console.WriteLine(accountSelected.GetAccountHistory());
@@ -102,11 +102,11 @@ public class Menu
     {
         int selection = Convert.ToInt32(Console.ReadLine());
 
-        // BankAccount accountExample1 = new BankAccount("Antonio", 2000);
-        // BankAccount accountExample2 = new BankAccount("Aarón", 1000);
-        // BankAccount accountExample3 = new BankAccount("Pablo", 3000);
+        BankAccount accountExample1 = new BankAccount("Antonio", 2000);
+        BankAccount accountExample2 = new BankAccount("Aarón", 1000);
+        BankAccount accountExample3 = new BankAccount("Pablo", 3000);
 
-        var accounts = new List<BankAccount>{/*accountExample1, accountExample2, accountExample3*/};
+        var accounts = new List<BankAccount>{accountExample1, accountExample2, accountExample3};
 
         while (selection != 3 && selection < 4)
         {
@@ -142,6 +142,7 @@ public class Menu
             selection = Convert.ToInt32(Console.ReadLine());
 
         }
+        BankAccount.SaveTransactionsInJSON(accounts);
     }
 
 }
