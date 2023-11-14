@@ -1,5 +1,7 @@
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Transactions;
+using System.Xml.XPath;
 
 namespace Models;
 
@@ -86,25 +88,41 @@ public class BankAccount
 
     public static void SaveTransactionsInJSON(List<BankAccount> bankAccounts)
     {
-        string fileName = "Transactions.json";
-
-        File.AppendAllText(fileName, "[");
         foreach (var bankAccount in bankAccounts)
         {
+            string fileName = bankAccount.Owner + bankAccount.Number + ".json";
             string jsonString = JsonSerializer.Serialize(bankAccount.transactions);
-            File.AppendAllText(fileName, "\n");
-            File.AppendAllText(fileName, "\t");
-            File.AppendAllText(fileName, jsonString);
-            if(File.ReadAllText(fileName).Last().Equals("]")){
-                File.AppendAllText(fileName, ",");
-                File.AppendAllText(fileName, "\n");
-            } else{
-                File.AppendAllText(fileName, "]");
-            }
+            File.AppendAllText(fileName, jsonString);  
         }
-       
         
     }
 
-    public virtual void PerformMonthlyOperation() { }
+    public static void ReadTransactionFromJson(BankAccount a){
+        string path = a.Owner + a.Number + ".json";
+        string transationJson = File.ReadAllText(path);
+
+        var stringJson = JsonSerializer.Deserialize<List<Transaction>>(File.ReadAllText(path));
+        var historial = new System.Text.StringBuilder();
+        decimal balance = 0;
+
+        foreach (var item in a.transactions)
+        {
+            balance += item.Amount;
+        }
+
+        historial.AppendLine("Date\t\tAmount\t\tBalance\t\tNote");
+        historial.AppendLine($"{stringJson[0].Date.ToShortDateString()}\t{stringJson[0].Amount}\t\t{balance}\t\t{stringJson[0].Note}");
+
+        Console.WriteLine(historial);
+    }
+
+    public static void DeleteFilesJson(List<BankAccount> bankAccounts){
+        foreach (var bankAccount in bankAccounts)
+        {
+            string fileName = bankAccount.Owner + bankAccount.Number + ".json";
+            File.Delete(fileName);  
+        }
+    }
+
+    public virtual void PerformMonthlyOperation() {}
 }

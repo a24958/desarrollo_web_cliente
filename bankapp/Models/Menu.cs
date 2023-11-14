@@ -95,7 +95,10 @@ public class Menu
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
 
         Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
-        Console.WriteLine(accountSelected.GetAccountHistory());
+
+        BankAccount.ReadTransactionFromJson(accountSelected);
+
+        //Console.WriteLine(accountSelected.GetAccountHistory());
     }
 
     public static void doActions()
@@ -143,6 +146,7 @@ public class Menu
 
         }
         BankAccount.SaveTransactionsInJSON(accounts);
+        BankAccount.DeleteFilesJson(accounts);
     }
 
 }
