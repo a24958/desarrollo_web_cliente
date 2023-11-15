@@ -28,6 +28,10 @@ public class Menu
     {
         Console.WriteLine("SELECIONE UNA CUENTA: ");
     }
+    public static void AccountOptionError()
+    {
+        Console.WriteLine("CUENTA NO EXISTENTE CON ESE NÚMERO");
+    }
 
     public static void Cuantity()
     {
@@ -42,10 +46,15 @@ public class Menu
     public static BankAccount newAccount()
     {
         Console.WriteLine("INTRODUCE TU NOMBRE:");
-        string? ownerName = Convert.ToString(Console.ReadLine());
+        string? ownerName = Console.ReadLine();
 
-        Console.WriteLine("INTRODUCE EL SALDO INICIAL DE LA CUENTA:");
-        decimal accountBalance = Convert.ToDecimal(Console.ReadLine());
+        decimal accountBalance;
+
+        do
+        {
+            Console.WriteLine("INTRODUCE EL SALDO INICIAL DE LA CUENTA:");
+        } while (!decimal.TryParse(Console.ReadLine(), out accountBalance));
+
 
         BankAccount bankAccount = new BankAccount(owner: ownerName!, balance: accountBalance);
         return bankAccount;
@@ -53,11 +62,34 @@ public class Menu
 
     public static void newDeposit(List<BankAccount> a)
     {
-        AccountOption();
-        string? accountInput = Console.ReadLine();
+        string? accountInput;
+        bool check = false;
 
-        Cuantity();
-        decimal cuantityInput = Convert.ToDecimal(Console.ReadLine());
+        do
+        {
+            AccountOption();
+            accountInput = Console.ReadLine();
+
+            foreach (var item in a)
+            {
+                if(accountInput!.Equals(item.Number)){
+                    check = true;
+                }
+            }
+
+            if (check == false)
+            {
+                AccountOptionError();
+            };
+
+        } while (check == false);
+
+       decimal cuantityInput;
+
+        do
+        {
+            Cuantity();
+        } while (!decimal.TryParse(Console.ReadLine(), out cuantityInput));
 
         TransactionNote();
         string? noteInput = Console.ReadLine();
@@ -65,45 +97,86 @@ public class Menu
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
         accountSelected.MakeDeposit(cuantityInput, DateTime.Now, noteInput ?? " ");
 
-        Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
-        Console.WriteLine(accountSelected.GetAccountHistory());
     }
 
     public static void newWithDrawal(List<BankAccount> a)
     {
-        AccountOption();
-        string? accountInput = Console.ReadLine();
+        string? accountInput;
+        bool check = false;
 
-        Cuantity();
-        decimal cuantityInput = Convert.ToDecimal(Console.ReadLine());
+        do
+        {
+            AccountOption();
+            accountInput = Console.ReadLine();
+
+            foreach (var item in a)
+            {
+                if(accountInput!.Equals(item.Number)){
+                    check = true;
+                }
+            }
+
+            if (check == false)
+            {
+                AccountOptionError();
+            };
+
+        } while (check == false);
+
+        decimal cuantityInput;
+
+        do
+        {
+            Cuantity();
+        } while (!decimal.TryParse(Console.ReadLine(), out cuantityInput));
+        
 
         TransactionNote();
         string? noteInput = Console.ReadLine();
 
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
-        accountSelected.Makewithdrawal(cuantityInput, DateTime.Now, noteInput ?? " ");
-
-        Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
-        Console.WriteLine(accountSelected.GetAccountHistory());
+        accountSelected.Makewithdrawal(cuantityInput, DateTime.Now, noteInput ?? " ");     
     }
 
     public static void PrintTransactions(List<BankAccount> a)
     {
-        AccountOption();
-        string? accountInput = Console.ReadLine();
+        string? accountInput;
+        bool check = false;
+
+        do
+        {
+            AccountOption();
+            accountInput = Console.ReadLine();
+
+            foreach (var item in a)
+            {
+                if(accountInput!.Equals(item.Number)){
+                    check = true;
+                }
+            }
+
+            if (check == false)
+            {
+                AccountOptionError();
+            };
+
+        } while (check == false);
 
         BankAccount accountSelected = a.FirstOrDefault((e) => e.Number!.Equals(accountInput))!;
 
         Console.WriteLine("CUENTA NUMERO: " + accountSelected.Number);
 
-        BankAccount.ReadTransactionFromJson(accountSelected);
-
-        //Console.WriteLine(accountSelected.GetAccountHistory());
+        Console.WriteLine(BankAccount.ReadTransactionFromJson(accountSelected));
     }
 
     public static void doActions()
     {
-        int selection = Convert.ToInt32(Console.ReadLine());
+        int selection;
+
+        do
+        {
+            OptionMenu();
+        } while (!int.TryParse(Console.ReadLine(), out selection));
 
         BankAccount accountExample1 = new BankAccount("Antonio", 2000);
         BankAccount accountExample2 = new BankAccount("Aarón", 1000);
@@ -113,6 +186,7 @@ public class Menu
 
         while (selection != 3 && selection < 4)
         {
+            BankAccount.SaveTransactionsInJSON(accounts);
             switch (selection)
             {
                 case 1:
@@ -120,8 +194,13 @@ public class Menu
                     accounts.Add(newBankAccount);
                     break;
                 case 2:
-                    OperationMenu();
-                    int newOption = Convert.ToInt32(Console.ReadLine());
+                    int newOption;
+
+                    do
+                    {
+                        OperationMenu();
+                    } while (!int.TryParse(Console.ReadLine(), out newOption));
+
                     switch (newOption)
                     {
                         case 1:
@@ -139,14 +218,15 @@ public class Menu
                     break;
             }
 
-            MainMenu();
-            OptionMenu();
-
-            selection = Convert.ToInt32(Console.ReadLine());
+            
+            do
+            {
+                MainMenu();
+                OptionMenu();
+            } while (!int.TryParse(Console.ReadLine(), out selection));
 
         }
-        BankAccount.SaveTransactionsInJSON(accounts);
-        BankAccount.DeleteFilesJson(accounts);
+        // BankAccount.DeleteFilesJson(accounts);
     }
 
 }

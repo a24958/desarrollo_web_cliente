@@ -92,28 +92,30 @@ public class BankAccount
         {
             string fileName = bankAccount.Owner + bankAccount.Number + ".json";
             string jsonString = JsonSerializer.Serialize(bankAccount.transactions);
-            File.AppendAllText(fileName, jsonString);  
+            File.WriteAllText(fileName, jsonString);  
         }
         
     }
 
-    public static void ReadTransactionFromJson(BankAccount a){
+    public static string ReadTransactionFromJson(BankAccount a){
         string path = a.Owner + a.Number + ".json";
-        string transationJson = File.ReadAllText(path);
-
         var stringJson = JsonSerializer.Deserialize<List<Transaction>>(File.ReadAllText(path));
         var historial = new System.Text.StringBuilder();
         decimal balance = 0;
 
-        foreach (var item in a.transactions)
-        {
-            balance += item.Amount;
-        }
+        // foreach (var item in a.transactions)
+        // {
+        //     balance += item.Amount;
+        // }
 
         historial.AppendLine("Date\t\tAmount\t\tBalance\t\tNote");
-        historial.AppendLine($"{stringJson[0].Date.ToShortDateString()}\t{stringJson[0].Amount}\t\t{balance}\t\t{stringJson[0].Note}");
+        foreach (var item in stringJson!)
+        {
+            balance += item.Amount;
+            historial.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t\t{balance}\t\t{item.Note}");
+        }
 
-        Console.WriteLine(historial);
+        return historial.ToString();
     }
 
     public static void DeleteFilesJson(List<BankAccount> bankAccounts){
